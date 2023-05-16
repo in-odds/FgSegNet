@@ -239,7 +239,7 @@ class FgSegNet_M_S_module(object):
                 top = MyUpSampling2D(size=(1,1), num_pixels=(2,0))(top)
 
         vision_model = Model(inputs=[input_1, input_2, input_3], outputs=top, name='vision_model')
-        opt = RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08)
+        opt = RMSprop(learning_rate = self.lr, rho=0.9, epsilon=1e-08)
         
         # Since UCSD has no void label, we do not need to filter out
         if dataset_name == 'UCSD':
@@ -321,7 +321,7 @@ class FgSegNet_M_S_module(object):
                 x = MyUpSampling2D(size=(1,1), num_pixels=(2,0))(x)
         
         vision_model = Model(inputs=input_1, outputs=x, name='vision_model')
-        opt =RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08)
+        opt =RMSprop(learning_rate = self.lr, rho=0.9, epsilon=1e-08)
         
         # Since UCSD has no void label, we do not need to filter out
         if dataset_name == 'UCSD':
