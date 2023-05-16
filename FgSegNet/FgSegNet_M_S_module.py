@@ -321,7 +321,7 @@ class FgSegNet_M_S_module(object):
                 x = MyUpSampling2D(size=(1,1), num_pixels=(2,0))(x)
         
         vision_model = Model(inputs=input_1, outputs=x, name='vision_model')
-        opt = keras.optimizers.RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08, decay=0.)
+        opt = tf.keras.optimizers.RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08, decay=0.)
         
         # Since UCSD has no void label, we do not need to filter out
         if dataset_name == 'UCSD':
