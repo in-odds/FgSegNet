@@ -11,16 +11,15 @@ from keras.engine.base_layer import Layer
 from keras.utils import conv_utils
 from keras.layers import UpSampling2D
 
-# version 2.1.x has now base_layer class, so we need to import
 
 from keras.engine.base_layer import InputSpec
 
 import tensorflow as tf
 import numpy as np
 
-class MyUpSampling2D(Layer):
-    
-    @UpSampling2D
+class MyUpSampling2D(UpSampling2D):
+
+
     def __init__(self, size=(2, 2), num_pixels = (0, 0), data_format='channels_last', method_name='FgSegNet_M', **kwargs):
         super(MyUpSampling2D, self).__init__(**kwargs)
         self.data_format = conv_utils.normalize_data_format(data_format)
