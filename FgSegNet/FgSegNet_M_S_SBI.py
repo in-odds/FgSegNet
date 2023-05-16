@@ -146,7 +146,7 @@ def getData(train_dir, dataset_dir, scene, method_name):
         if(len(idx)>0):
             y = y[idx]
         lb = np.unique(y) #  0., 1
-        cls_weight = compute_class_weight('balanced', lb , y)
+        cls_weight = compute_class_weight('balanced',  classes=lb , y=y)
         class_0 = cls_weight[0]
         class_1 = cls_weight[1] if len(lb)>1 else 1.0
         
