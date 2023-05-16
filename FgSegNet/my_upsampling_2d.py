@@ -7,7 +7,7 @@ Created on Mon Aug  6 15:20:23 2018
 """
 
 from keras import backend as K
-from keras.engine.topology import Layer
+from keras.engine.base_layer import Layer
 from keras.utils import conv_utils
 from keras.legacy import interfaces
 
