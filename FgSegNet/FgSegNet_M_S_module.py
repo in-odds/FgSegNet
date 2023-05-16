@@ -16,7 +16,7 @@ from keras import regularizers
 from my_upsampling_2d import MyUpSampling2D
 import keras.backend as K
 import tensorflow as tf
-from tensorflow.keras import optimizers
+from tensorflow.keras.optimizers import RMSprop
 def loss(y_true, y_pred):
     void_label = -1.
     y_pred = K.reshape(y_pred, [-1])
@@ -239,7 +239,7 @@ class FgSegNet_M_S_module(object):
                 top = MyUpSampling2D(size=(1,1), num_pixels=(2,0))(top)
 
         vision_model = Model(inputs=[input_1, input_2, input_3], outputs=top, name='vision_model')
-        opt = optimizers.RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08, decay=0.0)
+        opt = RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08, decay=0.0)
         
         # Since UCSD has no void label, we do not need to filter out
         if dataset_name == 'UCSD':
@@ -321,7 +321,7 @@ class FgSegNet_M_S_module(object):
                 x = MyUpSampling2D(size=(1,1), num_pixels=(2,0))(x)
         
         vision_model = Model(inputs=input_1, outputs=x, name='vision_model')
-        opt =optimizers.RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08, decay=0.)
+        opt =RMSprop(lr = self.lr, rho=0.9, epsilon=1e-08, decay=0.)
         
         # Since UCSD has no void label, we do not need to filter out
         if dataset_name == 'UCSD':
