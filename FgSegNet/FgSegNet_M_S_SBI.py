@@ -32,7 +32,7 @@ sess = tf.Session(graph=tf.get_default_graph(), config=session_conf)
 K.set_session(sess)
 
 import keras, glob
-from keras.preprocessing import image as kImage
+import keras.utils as kImage
 from sklearn.utils import compute_class_weight
 from keras.utils.data_utils import get_file
 from skimage.transform import pyramid_gaussian
