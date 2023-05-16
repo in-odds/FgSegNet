@@ -174,7 +174,7 @@ def train(results, scene, mdl_path, vgg_weights_path, method_name):
     
     # make sure that training input shape equals to model output
     input_shape = (img_shape[0], img_shape[1])
-    output_shape = (model.output._keras_shape[1], model.output._keras_shape[2])
+    output_shape = (model.output.shape[1], model.output.shape[2])
     assert input_shape==output_shape, 'Given input shape:' + str(input_shape) + ', but your model outputs shape:' + str(output_shape)
     
     chk = keras.callbacks.ModelCheckpoint(mdl_path, monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=False, mode='auto', period=1)
