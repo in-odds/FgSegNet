@@ -12,7 +12,7 @@ from keras.utils import conv_utils
 from keras.layers import UpSampling2D
 
 
-from keras.engine.base_layer import InputSpec
+from tensorflow.keras.engine.base_layer import InputSpec
 
 import tensorflow as tf
 import numpy as np
