@@ -183,7 +183,7 @@ class FgSegNet_M_S_module(object):
             elif(self.scene=='CaVignal'):
                 x3 = MyUpSampling2D(size=(1,1), num_pixels=(2,2))(x3)
             elif(self.scene=='Foliage'):
-                x3 = MyUpSampling2D(size=(1,1), num_pixels=(0,2))(x3)f
+                x3 = MyUpSampling2D(size=(1,1), num_pixels=(0,2))(x3)
             elif(self.scene=='Toscana'):
                 x3 = MyUpSampling2D(size=(1,1), num_pixels=(2,0))(x3)
                 
